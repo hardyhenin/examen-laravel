@@ -1,19 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\VehiculesController;
+use App\Http\Controllers\ChauffeurController;
+use App\Http\Controllers\TrajetController;
+use App\Http\Controllers\PassagersController;
+use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\DashboardController; 
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-Route::resource('Vehicules',VehiculesController::class);
-//Route::resource('auteurs',AuteurController::class);
-Route::get('/', function () {
-    return view('Vehicules.index');
-});
+Route::get('/', [DashboardController::class, 'index'])->name('dashboard'); 
+
+Route::resource('vehicules', VehiculesController::class);
+Route::resource('chauffeurs', ChauffeurController::class);
+Route::resource('trajets', TrajetController::class);
+Route::resource('passagers', PassagersController::class);
+Route::resource('reservations', ReservationController::class);

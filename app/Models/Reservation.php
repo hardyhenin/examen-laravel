@@ -10,6 +10,7 @@ class Reservation extends Model
     use HasFactory;
 
     protected $fillable = [
+        'passagers_id',
         'trajets_id',
         'vehicules_id',
         'chauffeurs_id',
@@ -19,14 +20,11 @@ class Reservation extends Model
 
     protected $casts = [
         'date_reservation' => 'datetime',
-        'statut' => 'string',
     ];
 
-   
-
-    public function passagers() 
+    public function passager()
     {
-        return $this->belongsToMany(Passager::class, 'reservation_passager', 'reservations_id', 'passagers_id')->withTimestamps();
+        return $this->belongsTo(Passager::class, 'passagers_id');
     }
 
     public function trajet()

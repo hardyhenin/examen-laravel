@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nom');
             $table->string('contact')->nullable();
             $table->string('disponibilité');
-      
+            $table->timestamps();
         });
     }
 

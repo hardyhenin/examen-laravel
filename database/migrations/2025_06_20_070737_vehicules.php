@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('marque');
             $table->string('modele');
             $table->string('statu');
+            $table->timestamps();
         });
     }
 
