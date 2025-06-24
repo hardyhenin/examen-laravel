@@ -1,0 +1,20 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use App\Models\Passager;
+use Illuminate\Support\Facades\DB;
+
+class PassagerSeeder extends Seeder
+{
+    public function run(): void
+    {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        Passager::truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+
+        Passager::factory()->count(50)->create();
+    }
+}

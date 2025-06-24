@@ -35,13 +35,15 @@
                     <td>{{ $passager->email ?? 'N/A' }}</td>
                     <td>{{ $passager->adresse ?? 'N/A' }}</td>
                     <td>
-                        <a href="{{ route('passagers.show', $passager->id) }}" class="btn btn-info btn-sm me-1">Voir</a>
-                        <a href="{{ route('passagers.edit', $passager->id) }}" class="btn btn-warning btn-sm me-1">Modifier</a>
-                        <form action="{{ route('passagers.destroy', $passager->id) }}" method="POST" class="d-inline">
+                        <div class>
+                            <a href="{{ route('passagers.show', $passager->id) }}" class="btn btn-info btn-sm me-1">Voir</a>
+                            <a href="{{ route('passagers.edit', $passager->id) }}" class="btn btn-warning btn-sm me-1">Modifier</a>
+                         <form action="{{ route('passagers.destroy', $passager->id) }}" method="POST" class="d-inline">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce passager ?')">Supprimer</button>
-                        </form>
+                         </form>
+                        </div>
                     </td>
                 </tr>
                 @empty
